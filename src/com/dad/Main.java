@@ -3,6 +3,7 @@ package com.dad;
 import java.io.FileNotFoundException;
 import java.io.RandomAccessFile;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 
 public class Main {
@@ -17,8 +18,15 @@ public class Main {
 
 
 
+
         for (int i = 0; i < args.length; i++) {
+
+            String a = args[i];
+            char[] characters=a.toCharArray();
             System.out.println(args[i]);
+            for (int z =0; z < characters.length;z++) {
+                System.out.println((int) characters[z]); // Comment écrire les données en ascii
+            }
             // o (position) l (largeur) dans la fonction print data o = offset et l pour length
 
         }
