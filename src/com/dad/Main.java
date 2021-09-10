@@ -56,9 +56,10 @@ public class Main {
                 char[] stringInput = userInput;
                 System.out.printf("");
                 for (int z = i - 16;z < i; z++) {
-                    if (stringInput[z] != '\n' && stringInput[z] !='\r') {
+                    if (stringInput[z] == '\n' || stringInput[z] =='\r') {stringInput[z] = '.';}
+
                         System.out.printf("%s", stringInput[z]);
-                    } else {System.out.printf("..");}
+
 
                 }
                 System.out.print('\n');
