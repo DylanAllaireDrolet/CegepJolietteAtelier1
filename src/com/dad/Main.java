@@ -46,16 +46,24 @@ public class Main {
         String contents = buffer.toString();
 
         char[] userInput = contents.toCharArray();
-        System.out.println("\u001B[33m 0 1 2 3 4 5 6 7 8 9 A B C D E F");
+        System.out.println("\u001B[33m0\t1\t2\t3\t4\t5\t6\t7\t8\t9\tA\tB\tC\tD\tE\tF\t\tASCII");
         System.out.print("\u001B[37m");
+
+
         int line = 0; // Only for appearance
-        for (int z = (int)offset; z < length;z++) {
-            line ++;
-            if (line ==15){
+        for (int i = (int)offset; i < length;i++) {
+            if (line ==16){
+               /* System.out.printf("\t\t");
+                for (int z = i - 16; z < z + 16; z++) {
+                    System.out.printf("%s", userInput[z]);
+                */}
                 System.out.print('\n');
                 line = 0;
+
             }
-            System.out.printf("%d \t",(int) userInput[z]);
+            line ++;
+            System.out.printf("%s\t",Integer.toHexString((int) userInput[i])); // Translate ASCII into Hexadecimal
+            //System.out.printf("%d ",(int) userInput[i]); // Translate ASCII into Decimal
         }
     }
 
