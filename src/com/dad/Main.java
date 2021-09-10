@@ -46,7 +46,8 @@ public class Main {
         String contents = buffer.toString();
 
         char[] userInput = contents.toCharArray();
-
+        System.out.println("\u001B[33m 0 1 2 3 4 5 6 7 8 9 A B C D E F");
+        System.out.print("\u001B[37m");
         int line = 0; // Only for appearance
         for (int z = (int)offset; z < length;z++) {
             line ++;
@@ -54,7 +55,7 @@ public class Main {
                 System.out.print('\n');
                 line = 0;
             }
-            System.out.printf("%d",(int) userInput[z]);
+            System.out.printf("%d \t",(int) userInput[z]);
         }
     }
 
