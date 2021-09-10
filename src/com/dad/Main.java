@@ -46,17 +46,21 @@ public class Main {
         String contents = buffer.toString();
 
         char[] userInput = contents.toCharArray();
-        System.out.println("\u001B[33m0\t1\t2\t3\t4\t5\t6\t7\t8\t9\tA\tB\tC\tD\tE\tF\t\tASCII");
+        System.out.println("\u001B[33m0\t1\t2\t3\t4\t5\t6\t7\t8\t9\tA\tB\tC\tD\tE\tF\tASCII");
         System.out.print("\u001B[37m");
 
 
         int line = 0; // Only for appearance
         for (int i = (int)offset; i < length;i++) {
             if (line ==16){
-               /* System.out.printf("\t\t");
-                for (int z = i - 16; z < z + 16; z++) {
-                    System.out.printf("%s", userInput[z]);
-                */}
+                char[] stringInput = userInput;
+                System.out.printf("");
+                for (int z = i - 16;z < i; z++) {
+                    if (stringInput[z] != '\n' && stringInput[z] !='\r') {
+                        System.out.printf("%s", stringInput[z]);
+                    } else {System.out.printf("..");}
+
+                }
                 System.out.print('\n');
                 line = 0;
 
