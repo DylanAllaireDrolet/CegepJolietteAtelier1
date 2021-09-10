@@ -3,7 +3,6 @@ package com.dad;
 import java.io.FileNotFoundException;
 import java.io.RandomAccessFile;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 
 
 public class Main {
@@ -37,15 +36,25 @@ public class Main {
 
     public static void printData(RandomAccessFile file, long offset, long length) throws IOException {
         // TODO: Affichage des données.
-        file.seek(offset);
-        String a = file.readLine();
-        char[] userInput=a.toCharArray();
-        for (int i = 0; i < (int)length; i++) {
-            userInput[i] = file.readChar();
+        // Reading whole file
+        StringBuffer buffer = new StringBuffer();
+        //Reading each line using the readLine() method
+        while(file.getFilePointer() < file.length()) {
+            buffer.append(file.readLine()+System.lineSeparator());
         }
 
-        for (int z = 0; z < length;z++) {
-            System.out.printf("%d ",(int) userInput[z]);
+        String contents = buffer.toString();
+
+        char[] userInput = contents.toCharArray();
+
+        int line = 0; // Only for appearance
+        for (int z = (int)offset; z < length;z++) {
+            line ++;
+            if (line ==15){
+                System.out.print('\n');
+                line = 0;
+            }
+            System.out.printf("%d",(int) userInput[z]);
         }
     }
 
