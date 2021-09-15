@@ -52,7 +52,7 @@ public class Main {
             if (!definedLength)
                 length = file.length();
             printData(file,offset,length);
-
+        printFormat();
         // TODO: Gestion des arguments.
         // TODO: Gestion du fichier.
     }
@@ -104,9 +104,10 @@ public class Main {
 
 
                 }
-                if(!end)
+                if(!end) {
                     System.out.print('\n');
-                System.out.printf("\u001B[33m%s\t",memory[memoryLine]);
+                    System.out.printf("\u001B[33m%s\t", memory[memoryLine]);
+                }
 
                 line = 0;
 
@@ -121,6 +122,7 @@ public class Main {
 
 
         }
+
     }
 
     public static void printUsage() {
@@ -132,7 +134,10 @@ public class Main {
     }
 
     public static void printFormat() {
-        // TODO: Affichage du format d'exécutable.
+        String OS = null;
+        OS = System.getProperty("os.name");
+        System.out.println("\n\nOS : "+OS);
+        System.out.println("Version : "+ System.getProperty("os.version"));
     }
 
 
